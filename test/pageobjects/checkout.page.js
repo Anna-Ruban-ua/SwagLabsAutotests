@@ -9,8 +9,14 @@ class CheckoutPage {
     get totalLabel() { return $('.summary_subtotal_label'); }
     get completeHeader() { return $('.complete-header'); }
 
-    
-    async clikContinue() {
+    async isCheckoutCorrect() {
+        const expectedMessage = 'Thank you for your order!';
+        const actualMessage = await this.completeHeader.getText();
+
+        return actualMessage === expectedMessage;
+    }
+
+    async clickContinue() {
         await this.continueButton.click();
     }
 

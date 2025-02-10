@@ -12,6 +12,10 @@ class InventoryPage {
     get addToCartButtons() { return $$('[class*="btn_inventory"]'); }
     get removeFromCartButtons() { return $$('[class="btn_secondary btn_inventory"]'); }
 
+    async scrollToFooter() {
+        await browser.execute('window.scrollTo(0, document.body.scrollHeight)');
+    }
+
     async isPageLoaded() {
         return await this.inventoryPage.isDisplayed() && await this.cartIcon.isDisplayed();
     }

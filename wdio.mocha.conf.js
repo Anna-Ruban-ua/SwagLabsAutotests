@@ -22,6 +22,7 @@ export const config = {
     //
     specs: [
         './test/specs/**/*.js'
+        //'./test/specs/TC0009_Checkout_without_products.js'
     ],
     // Patterns to exclude.
     exclude: [

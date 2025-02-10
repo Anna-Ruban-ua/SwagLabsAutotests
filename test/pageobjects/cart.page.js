@@ -6,6 +6,16 @@ class CartPage {
     get cartSubheader() { return $('[class*="title"]'); }
     get errorText() { return $('[data-test="error"]'); } 
 
+    async isEmptyCartCheckoutCorrect() {
+        const expectedHeader = 'Your Cart';
+        const actualHeader = await this.cartSubheader.getText();
+
+       //const expectedMessage = 'Cart is empty';
+       // const actualMessage = await this.errorText.getText();
+
+        return actualHeader === expectedHeader; //&& actualMessage === expectedMessage;
+    }
+
     async getProductName(index) {
         return await this.productNames[index].getText();
     }

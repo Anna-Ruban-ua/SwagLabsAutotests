@@ -21,7 +21,7 @@ describe('Checkout', () => {
 
         await CheckoutPage.checkoutInput('Anna', 'Ruban', '04107');
 
-        await CheckoutPage.clikContinue();
+        await CheckoutPage.clickContinue();
         await expect(CheckoutPage.checkoutSummary).toBeDisplayed();
 
         const displayedTotal = await CheckoutPage.getDisplayedTotalPrice();
