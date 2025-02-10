@@ -11,8 +11,7 @@ describe('Checkout', () => {
         expect (await CartPage.cartContents.getValue()).toBe(null)
         await CartPage.checkout();
 
-        expect(await CartPage.cartSubheader.getText()).toBe('Your Cart');
-        expect(await CartPage.errorText.getText()).toBe('Cart is empty');
-        
+        expect(await CartPage.isEmptyCartCheckoutCorrect()).toBeTruthy();
+
     });
 });
