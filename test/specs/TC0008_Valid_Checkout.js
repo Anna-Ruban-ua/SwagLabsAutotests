@@ -29,7 +29,7 @@ describe('Checkout', () => {
         expect(displayedTotal).toBeCloseTo(totalPriceFromCart, 2);
         
         await CheckoutPage.clickFinish();
-        expect((await CheckoutPage.completeHeader.getText()).toLowerCase()).toBe('thank you for your order!'.toLowerCase());
+        expect(await CheckoutPage.isCheckoutCorrect()).toBeTruthy();
 
         await InventoryPage.backHome();
         expect (await InventoryPage.cartIcon).not.toBeDisplayed();
