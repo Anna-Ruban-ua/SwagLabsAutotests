@@ -8,7 +8,7 @@ describe('Checkout', () => {
         await LoginPage.login('standard_user', 'secret_sauce'); 
 
         await InventoryPage.cartClick();
-        expect (await CartPage.cartContents.getValue()).toBe(null)
+        expect (await CartPage.cartContents.getValue()).toHaveValue(null)
         await CartPage.checkout();
 
         expect(await CartPage.isEmptyCartCheckoutCorrect()).toBeTruthy();

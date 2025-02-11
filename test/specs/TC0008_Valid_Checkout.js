@@ -12,7 +12,7 @@ describe('Checkout', () => {
 
         const productNameInCatalog = await InventoryPage.getProductName(2);
         await InventoryPage.cartClick();
-        expect(await CartPage.getProductName(0)).toBe(productNameInCatalog);
+        expect(await CartPage.getProductName(0)).toHaveValue(productNameInCatalog);
         
         const totalPriceFromCart = await CartPage.getTotalCartPrice();
         

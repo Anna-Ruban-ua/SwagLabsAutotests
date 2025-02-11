@@ -14,12 +14,12 @@ describe('Cart', () => {
         const productNameInCatalog = await InventoryPage.getProductName(1);
         
         await InventoryPage.cartClick();
-        expect(await CartPage.getProductName(0)).toBe(productNameInCatalog);
+        expect(await CartPage.getProductName(0)).toHaveValue(productNameInCatalog);
         
         await InventoryPage.logout();
         await LoginPage.login('standard_user', 'secret_sauce'); 
         await InventoryPage.cartClick();
 
-        expect(await CartPage.getProductName(0)).toBe(productNameInCatalog);
+        expect(await CartPage.getProductName(0)).toHaveValue(productNameInCatalog);
     });
 });
