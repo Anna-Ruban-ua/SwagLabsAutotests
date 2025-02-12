@@ -117,4 +117,5 @@ class InventoryPage {
 
 }
 
-export default new InventoryPage();
+const inventoryPage = new InventoryPage();
+export default inventoryPage;

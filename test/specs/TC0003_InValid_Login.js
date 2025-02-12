@@ -1,11 +1,11 @@
-import LoginPage from '../pageobjects/login.page.js';
+import loginPage from '../pageobjects/login.page.js';
 
 describe('Login tests', () => {
     it('Invalid password', async () => {
-        await LoginPage.open();
-        await LoginPage.login('standarD_user', 'secret_sauce');
+        await loginPage.open();
+        await loginPage.login('standarD_user', 'secret_sauce');
 
-        expect(await LoginPage.isLoginErrorCorrect()).toBeTruthy();
+        expect(await loginPage.isLoginErrorCorrect()).toBeTruthy();
 
     });
 });

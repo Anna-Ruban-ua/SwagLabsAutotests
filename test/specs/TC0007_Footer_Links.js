@@ -1,12 +1,12 @@
-import LoginPage from '../pageobjects/login.page.js';
+import loginPage from '../pageobjects/login.page.js';
 import { openSocialMediaLink } from '../helpers/socialMediaHelper.js';
-import InventoryPage from '../pageobjects/inventory.page.js';
+import inventoryPage from '../pageobjects/inventory.page.js';
 
 describe('Footer', () => {
     before(async () => {
-        await LoginPage.open();
-        await LoginPage.login('standard_user', 'secret_sauce'); 
-        await InventoryPage.scrollToFooter();
+        await loginPage.open();
+        await loginPage.login('standard_user', 'secret_sauce'); 
+        await inventoryPage.scrollToFooter();
     });
 
     it('should open Twitter in a new tab', async () => {

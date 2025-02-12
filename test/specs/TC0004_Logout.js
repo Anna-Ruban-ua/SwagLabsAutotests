@@ -1,16 +1,16 @@
-import LoginPage from '../pageobjects/login.page.js';
-import InventoryPage from '../pageobjects/inventory.page.js';
+import loginPage from '../pageobjects/login.page.js';
+import inventoryPage from '../pageobjects/inventory.page.js';
 
 describe('Login tests', () => {
     it('Logout', async () => {
-        await LoginPage.open();
-        await LoginPage.login('standard_user', 'secret_sauce');
+        await loginPage.open();
+        await loginPage.login('standard_user', 'secret_sauce');
 
-        expect(await InventoryPage.isPageLoaded()).toBeTruthy();
+        expect(await inventoryPage.isPageLoaded()).toBeTruthy();
 
-        await InventoryPage.logout();
+        await inventoryPage.logout();
 
-        expect(await LoginPage.isLoggedOutCorrectly()).toBeTruthy();
+        expect(await loginPage.isLoggedOutCorrectly()).toBeTruthy();
 
     });
 });

@@ -1,17 +1,17 @@
-import LoginPage from '../pageobjects/login.page.js';
-import InventoryPage from '../pageobjects/inventory.page.js';
-import CartPage from '../pageobjects/cart.page.js';
+import loginPage from '../pageobjects/login.page.js';
+import inventoryPage from '../pageobjects/inventory.page.js';
+import cartPage from '../pageobjects/cart.page.js';
 
 describe('Checkout', () => {
     it('Checkout without products', async () => {
-        await LoginPage.open();
-        await LoginPage.login('standard_user', 'secret_sauce'); 
+        await loginPage.open();
+        await loginPage.login('standard_user', 'secret_sauce'); 
 
-        await InventoryPage.cartClick();
-        expect (await CartPage.cartContents.getValue()).toHaveValue(null)
-        await CartPage.checkout();
+        await inventoryPage.cartClick();
+        expect (await cartPage.cartContents.getValue()).toHaveValue(null)
+        await cartPage.checkout();
 
-        expect(await CartPage.isEmptyCartCheckoutCorrect()).toBeTruthy();
+        expect(await cartPage.isEmptyCartCheckoutCorrect()).toBeTruthy();
 
     });
 });

@@ -37,4 +37,5 @@ class CartPage {
     }
 }
 
-export default new CartPage();
+const cartPage = new CartPage();
+export default cartPage;
