@@ -11,7 +11,7 @@ class LoginPage {
         await browser.url('https://www.saucedemo.com/');
     }
 
-    async clickLoginButton(buttonName) {
+    async clickButton(buttonName) {
         if (buttonName && buttonName === 'login') {
             await this.loginButton.click();
         } else {

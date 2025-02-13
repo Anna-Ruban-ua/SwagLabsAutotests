@@ -6,7 +6,7 @@ Given('User is located on the main page of saucedemo website', async function ()
 });
 
 When('User click {string} button', async function (buttonName) {
-    await loginPage.clickLoginButton(buttonName);
+    await loginPage.clickButton(buttonName);
 });
 
 Then('User should see {string} error message', async function (expectedErrorMessage) {
