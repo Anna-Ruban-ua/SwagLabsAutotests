@@ -5,9 +5,18 @@ class LoginPage {
     get loginButtonContainer () { return $('#login_button_container'); }
     get errorText() { return $('[data-test="error"]'); } 
     get errorButton() { return $('[class="error-button"]'); }
+    get errorTexth3() { return $('h3[data-test="error"]'); }
 
     async open() {
         await browser.url('https://www.saucedemo.com/');
+    }
+
+    async clickLoginButton(buttonName) {
+        if (buttonName && buttonName === 'login') {
+            await this.loginButton.click();
+        } else {
+            await this.loginButton.click();
+        }
     }
 
     async login(username, password) {
@@ -26,6 +35,16 @@ class LoginPage {
         const isErrorButtonVisible = await this.errorButton.isDisplayed();
 
         return actualMessage === expectedMessage && isErrorButtonVisible;
+    }
+
+    async verifyErrorMessage(expectedErrorMessage) {
+        const actualText = await this.errorTexth3.getText();
+        
+        if (!actualText.includes(expectedErrorMessage)) {
+            throw new Error(
+                `Expected error message to include "${expectedErrorMessage}", but got "${actualText}"`
+            );
+        }
     }
 
     async isLoggedOutCorrectly() {
